@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Repte1.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input1" type="text"></input>
+    <span>+</span>
+    <input id="input2" type="text"></input>
+    <button onclick="sumaMostra()">=</button>
+    <label id="resultado"></label>
+<style>
+    label{
+        font-size: 25px;
+    }
+ input{
+     width: 50px;
+    height: 50px;
+    font-size: 34px;
+    text-align: center;
+ }
+ button{
+    width: 30px;
+    height: 30px;
+}
+</style>
+<script>
+ 
+ function sumaMostra(){
+    var num1 = parseInt(document.getElementById("input1").value);
+    var num2 = parseInt(document.getElementById("input2").value);
+   
+   
+        var result = num1 + num2;
+    document.getElementById("resultado").innerHTML=result;
+    }
+    
+</script>
+</body>
+</html>
