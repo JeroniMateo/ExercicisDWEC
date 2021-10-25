@@ -1,0 +1,27 @@
+div#insertar{
+    background-color: #63d36a;
+    height: 70px;
+}
+
+div#exercicis{
+    background-color: yellowgreen;
+}
+div#resultat{
+    background-color: gold;
+    height: 80px;
+}
+
+button{
+    background-color: rgb(31 255 45);
+}
+
+p{
+    position: relative;
+    top: 15px;
+    left: 20px;
+    font-size: 20px;
+}
+input{
+    margin-top: 1px;
+    margin-left: 45px;
+}
