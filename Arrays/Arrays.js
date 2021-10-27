@@ -1,47 +1,48 @@
 
 
-//TODO: 1. Elements separats per "$"
+//TODO: 1.DONE Elements separats per "$"
 function separats01(){
+    const DOLAR = "$"
     var str= document.getElementById("num").value;
     let array = str.split(','); 
     for (var i = 0; i < array.length; i++) {
-        var result = "$" + array[i];
-        document.getElementById("solucion").innerHTML=result;
+        array[i]+= DOLAR;
+        document.getElementById("solucion").innerHTML=array;
     }
     
 }
 
-//TODO: 2. Concatenar un array
+//TODO: 2.DONE Concatenar un array
 function concat02(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-
-    var concat= array.concat();
-    concat= array.replace(',','')
+     var concat=array.join('');
     document.getElementById("solucion").innerHTML=concat;
 
     }
 
 
-//TODO: 3. Eliminar el 2on element
+//TODO: 3.DONE Eliminar el 2on element.
 function splice03(){
-    var str= document.getElementById("num").value;
-    let array = str.split(','); 
-    var splice = array.splice(1,1);
-    document.getElementById("solucion").innerHTML=splice;
-
-
-}
-
-//TODO: 4. Eliminar 2on element i afegir nous
-function splice04(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
     array.splice(1,1);
     document.getElementById("solucion").innerHTML=array;
 
 }
-//TODO: 5. Ordenar alfabeticament
+
+//TODO: 4.DONE Eliminar 2on element i afegir nous
+
+function splice04(){
+    var str= document.getElementById("num").value;
+    let array = str.split(','); 
+     array.splice(1,1,"Doe",  3.1415)
+    document.getElementById("solucion").innerHTML=array;
+
+
+}
+
+//TODO: 5.DONE Ordenar alfabeticament
 function strOrdenaMajor05(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
@@ -49,7 +50,7 @@ function strOrdenaMajor05(){
     document.getElementById("solucion").innerHTML=orden;
 }
 
-//TODO: 6. Ordenar de Menor a Major
+//TODO: 6.DONE Ordenar de Menor a Major
 function numOrdenaMajor06(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
@@ -57,17 +58,16 @@ function numOrdenaMajor06(){
 
 }
 
-//TODO: 7. Ordenar de Major a Menor
+//TODO: 7.DONE Ordenar de Major a Menor
 function numOrdenaMenor07(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-    var ordenar=  sort(array);
-    var invertir = ordenar.reverse();
-    document.getElementById("solucion").innerHTML=invertir;
+       document.getElementById("solucion").innerHTML= array.sort();
+       document.getElementById("solucion").innerHTML= array.reverse();
 
 }
 
-//TODO: 8. Ordenar els elements per la seva longitud
+//TODO: 8.DONE Ordenar els elements per la seva longitud
 function strOrdenaPerLong08(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
@@ -79,9 +79,9 @@ function strOrdenaPerLong08(){
       document.getElementById("solucion").innerHTML=array;
 }
 
-//TODO: 9. Medir la longitud dels elements
+//TODO: 9.DONE Medir la longitud dels elements
 function strArrayLongituds09(){
-    var astr= document.getElementById("num").value;
+    var str= document.getElementById("num").value;
     let array = str.split(','); 
     for (let i = 0; i < array.length; i++) {
     var longiud= array.map(x => x.length);
@@ -91,15 +91,14 @@ function strArrayLongituds09(){
 
 }
 
-//TODO: 10. Seperar els elements amb "-"
+//TODO: 10.DONE Seperar els elements amb "-"
 function strCreaFraseGuions10(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-    for (let i = 0; i < array.length; i++) {
-        var result =  array[i]+"-";
-        document.getElementById("solucion").innerHTML=result;
+      document.getElementById("solucion").innerHTML=array.join('-');
     }
-}
+    
+
 //TODO: 11. Fer un Acronim 
 function strCreaAcronim11(){
     var str= document.getElementById("num").value;
@@ -118,19 +117,12 @@ function strFiltreLongitud12(){
  
  //TODO: 13. Fer una suma utilitzant un foreach   
  
-function numSumaForeach13(array_numeros){
-    var numstr= document.getElementById("num").value;
+function numSumaForeach13(){
+    var str= document.getElementById("num").value;
     let array = str.split(',');  //El array de números
+    let total = array.reduce((a, b) => a + b, 0);
+    document.getElementById("solucion").innerHTML=total;
     
-    var suma = sumar_array(numeros); 
-        var suma = 0;
-        
-        array_numeros.forEach (function(numero){
-            suma += numero;
-        });
-        
-        document.getElementById("solucion").innerHTML=suma;
-        
     }
     
     /* Ejecutamos */
@@ -145,13 +137,6 @@ function strOcurrencies14(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
     
-
-var indices = [];
-for(var i = 0; i < array.length; i++) {
-	if (array[i].toLowerCase() === "la") indices.push(i);
-}
-
-document.getElementById("solucion").innerHTML = indices.length;
 
 
 } 
