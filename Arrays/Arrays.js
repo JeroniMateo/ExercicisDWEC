@@ -100,18 +100,20 @@ function strCreaFraseGuions10(){
     }
     
 
-//TODO: 11. Fer un Acronim 
+//TODO: 11.DONE Fer un Acronim 
 function strCreaAcronim11(){
     var str= document.getElementById("num").value;
-    let array = str.split(',');     
-    if (array.length > 1) {
-        initials += array[array.length - 1].substring(0, 1).toUpperCase();
-        document.getElementById("solucion").innerHTML=initials;
+    let array = str.split(',');    
+    let Acronim= array.map((item) =>{return item.split("")[0].toUpperCase()});
+    
+    document.getElementById("solucion").innerHTML=Acronim.toString().replaceAll(",","");
+
+    
     }
     
 
 
-}
+
 //TODO: 12.DONE Eliminar inferiors a 5 length
 function strFiltreLongitud12(){
     var str= document.getElementById("num").value;
@@ -152,17 +154,11 @@ function numSumaForeach13(){
 
 //TODO: 14. Contar la
 function strOcurrencies14(){
-    var indices= [];    
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-    var element = 'la';
-    var idx = array.indexOf(element);    
-    while (idx != -1) {
-        indices.push(idx);
-        idx = array.indexOf(element, idx + 1);
-      }
-    document.getElementById("solucion").innerHTML=  indices;
-        
+    const letras_contadas = contar_letras(letters);
+    
+    
     }
     
 
