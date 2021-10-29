@@ -1,5 +1,3 @@
-
-
 //TODO: 1.DONE Elements separats per "$"
 function separats01(){
     var str= document.getElementById("num").value;
@@ -156,10 +154,10 @@ function numSumaForeach13(){
 function strOcurrencies14(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-    const letras_contadas = contar_letras(letters);
-    
+   
     
     }
+
     
 
 
@@ -197,9 +195,15 @@ function restructuraArray17(){
 
 }
 
-//TODO: 18. Fer un array Capicua 3elements
+//TODO: 18.DONE Fer un array Capicua 3elements
 function capCuaArray18(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
+    var cap= array.splice(0,3);
+     var girar= cap.reverse();
+     array=array.concat(girar)
+    
+    document.getElementById("solucion").innerHTML=  array;
+
 
 }
