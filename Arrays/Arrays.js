@@ -162,9 +162,7 @@ function strOcurrencies14(){
         idx = array.indexOf(element, idx + 1);
       }
     document.getElementById("solucion").innerHTML=  indices;
-    
-
-    
+        
     }
     
 
@@ -180,10 +178,19 @@ function numSumaReduce15(){
 
 }
 
-//TODO: 16. str mes alt utilitzant forEach
+//TODO: 16.DONE str mes alt utilitzant forEach
 function numMaxForeach16(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
+    var maximum = Number.MIN_SAFE_INTEGER;
+
+
+array.forEach(function(value){
+  if(value > maximum) {
+    maximum = parseInt(value);
+  }
+});
+document.getElementById("solucion").innerHTML=  maximum;
 
 }
 
