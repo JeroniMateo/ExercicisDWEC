@@ -65,7 +65,7 @@ function numOrdenaMenor07(){
 
 }
 
-//TODO: 8.DONE Ordenar els elements per la seva longitud
+//TODO: 8. DONE Ordenar els elements per la seva longitud
 function strOrdenaPerLong08(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
@@ -77,7 +77,7 @@ function strOrdenaPerLong08(){
       document.getElementById("solucion").innerHTML=array;
 }
 
-//TODO: 9.DONE Medir la longitud dels elements
+//TODO: 9. DONE Medir la longitud dels elements
 function strArrayLongituds09(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
@@ -112,20 +112,20 @@ function strCreaAcronim11(){
 
 
 }
-//TODO: 12. Eliminar inferiors a 5 length
+//TODO: 12.DONE Eliminar inferiors a 5 length
 function strFiltreLongitud12(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
     for (let i = 0; i < array.length; i++) {
-    var longiud= array.map(x => x.length);
-    if(longiud >5){
+    if(array.length <5){
+        array.splice(i,i);
         document.getElementById("solucion").innerHTML=array;
     }
     }
 }
 
  
- //TODO: 13.DONE Fer una suma utilitzant un foreach   
+ //TODO: 13. DONE Fer una suma utilitzant un foreach   
  
 function numSumaForeach13(){
     var str= document.getElementById("num").value;
@@ -169,7 +169,7 @@ function strOcurrencies14(){
 
 
 
-//TODO: 15.DONE Suma utilitzant reduce()
+//TODO: 15. DONE Suma utilitzant reduce()
 function numSumaReduce15(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
