@@ -2,14 +2,11 @@
 
 //TODO: 1.DONE Elements separats per "$"
 function separats01(){
-    const DOLAR = "$"
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-    for (var i = 0; i < array.length; i++) {
-        array[i]+= DOLAR;
-        document.getElementById("solucion").innerHTML=array;
-    }
-    
+    var retorno="";
+    array.map(valor=> retorno +=valor +"$");
+    document.getElementById("solucion").innerHTML=retorno
 }
 
 //TODO: 2.DONE Concatenar un array
@@ -54,7 +51,8 @@ function strOrdenaMajor05(){
 function numOrdenaMajor06(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-       document.getElementById("solucion").innerHTML= array.sort();
+    var orden= array.sort()
+       document.getElementById("solucion").innerHTML= orden;
 
 }
 
@@ -95,7 +93,10 @@ function strArrayLongituds09(){
 function strCreaFraseGuions10(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-      document.getElementById("solucion").innerHTML=array.join('-');
+    var retorno="";
+    array.map(valor=> retorno +=valor +"-");
+    document.getElementById("solucion").innerHTML=retorno
+      
     }
     
 
@@ -103,6 +104,10 @@ function strCreaFraseGuions10(){
 function strCreaAcronim11(){
     var str= document.getElementById("num").value;
     let array = str.split(',');     
+    if (array.length > 1) {
+        initials += array[array.length - 1].substring(0, 1).toUpperCase();
+        document.getElementById("solucion").innerHTML=initials;
+    }
     
 
 
@@ -111,19 +116,32 @@ function strCreaAcronim11(){
 function strFiltreLongitud12(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-
+    for (let i = 0; i < array.length; i++) {
+    var longiud= array.map(x => x.length);
+    if(longiud >5){
+        document.getElementById("solucion").innerHTML=array;
+    }
+    }
 }
 
  
- //TODO: 13. Fer una suma utilitzant un foreach   
+ //TODO: 13.DONE Fer una suma utilitzant un foreach   
  
 function numSumaForeach13(){
     var str= document.getElementById("num").value;
-    let array = str.split(',');  //El array de números
-    let total = array.reduce((a, b) => a + b, 0);
-    document.getElementById("solucion").innerHTML=total;
+    let array = str.split(','); 
     
-    }
+    var total=0;
+        array.forEach(function(value){
+            total+= parseInt(value);
+            }
+        
+    );
+    
+    
+    
+    document.getElementById("solucion").innerHTML=total;
+}
     
     /* Ejecutamos */
     
@@ -134,17 +152,31 @@ function numSumaForeach13(){
 
 //TODO: 14. Contar la
 function strOcurrencies14(){
+    var indices= [];    
     var str= document.getElementById("num").value;
     let array = str.split(','); 
+    var element = 'la';
+    var idx = array.indexOf(element);    
+    while (idx != -1) {
+        indices.push(idx);
+        idx = array.indexOf(element, idx + 1);
+      }
+    document.getElementById("solucion").innerHTML=  indices;
+    
+
+    
+    }
     
 
 
-} 
 
-//TODO: 15. Suma utilitzant reduce()
+
+//TODO: 15.DONE Suma utilitzant reduce()
 function numSumaReduce15(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
+    const reducer = (accumulator, curr) => parseInt( accumulator) + parseInt(curr);
+    document.getElementById("solucion").innerHTML=array.reduce(reducer);
 
 }
 
