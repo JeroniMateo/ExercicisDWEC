@@ -178,7 +178,6 @@ function numMaxForeach16(){
     let array = str.split(','); 
     var maximum = Number.MIN_SAFE_INTEGER;
 
-
 array.forEach(function(value){
   if(value > maximum) {
     maximum = parseInt(value);
@@ -192,14 +191,17 @@ document.getElementById("solucion").innerHTML=  maximum;
 function restructuraArray17(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-
+    var cap= array.splice(1,1)
+    var fi= array.splice(array.length,array.length -1);
+    var canvi= array.splice(numeros.length / 2, cap,fi)
+    document.getElementById("solucion").innerHTML=  canvi;
 }
 
 //TODO: 18. Fer un array Capicua 3elements
 function capCuaArray18(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-    var cap= array.slice(0,3);
+    var cap= array.splice(0,3);
      var girar= cap.reverse();
      array=array.concat(girar)
     
