@@ -172,7 +172,7 @@ function numSumaReduce15(){
 
 }
 
-//TODO: 16.DONE str mes alt utilitzant forEach
+//TODO: 16. DONE str mes alt utilitzant forEach
 function numMaxForeach16(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
@@ -195,11 +195,11 @@ function restructuraArray17(){
 
 }
 
-//TODO: 18.DONE Fer un array Capicua 3elements
+//TODO: 18. Fer un array Capicua 3elements
 function capCuaArray18(){
     var str= document.getElementById("num").value;
     let array = str.split(','); 
-    var cap= array.splice(0,3);
+    var cap= array.slice(0,3);
      var girar= cap.reverse();
      array=array.concat(girar)
     
