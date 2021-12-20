@@ -1,10 +1,34 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
+  "posts": [
+    {
+      "title": "El Quijote",
+      "author": "Cervantes",
+      "id": 2
+    },
+    {
+      "title": "Lazarillo de Tormes",
+      "author": "Anónimo",
+      "id": 3
+    },
+    {
+      "title": "La Odisea",
+      "author": "Homero",
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "body": "Good Book",
+      "postId": 1,
+      "id": 1
+    },
+    {
+      "body": "I love this author",
+      "postId": 2,
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
   }
-  
+}
