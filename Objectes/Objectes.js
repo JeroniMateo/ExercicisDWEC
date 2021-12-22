@@ -81,12 +81,49 @@ var equip_ciclista = {
 
   //TODO: 3. Ordentats per altura
   function NomsAltura03(){
-
+    function SortArray(x, y){
+      if (x.height < y.height) {return -1;}
+      if (x.height > y.height) {return 1;}
+      return 0;
   }
+  var s = equip_ciclista.ciclistes.sort(SortArray);
+    
 
-  //TODO: 4. Ordenats de Millor a Pitjor
+    let txt = "";
+    for(let i in equip_ciclista.ciclistes){
+      txt += "Nombre:" + equip_ciclista.ciclistes[i].nom + " "+ "<br>";
+      txt += "Nacimiento: " + equip_ciclista.ciclistes[i].born + " "+ "<br>";
+      txt += "Altura: "+ equip_ciclista.ciclistes[i].height+ " "+ "<br>";
+      txt += "Tours Ganados: "+ equip_ciclista.ciclistes[i].tours+ " " + "<br>"; 
+      txt += "Victorias: "+ equip_ciclista.ciclistes[i].wins + "<br>" + "<br>";
+    }
+    document.getElementById("resultatP").innerHTML = txt;
+  }
+  
+
+  //TODO: 4. Ordenats de Millor a Pitjor DONE
   function MillorPitjor04(){
+    function SortArray(x, y){
+      if (x.tours > y.tours) {return -1;}
+      if (x.tours < y.tours) {return 1;}
+      if(x.tours == y.tours){
+        if (x.wins > y.wins) {return -1;}
+        if (x.wins < y.wins) {return 1;}
+      }
+      return 0;
+  }
+  var s = equip_ciclista.ciclistes.sort(SortArray);
+    
 
+    let txt = "";
+    for(let i in equip_ciclista.ciclistes){
+      txt += "Nombre:" + equip_ciclista.ciclistes[i].nom + " "+ "<br>";
+      txt += "Nacimiento: " + equip_ciclista.ciclistes[i].born + " "+ "<br>";
+      txt += "Altura: "+ equip_ciclista.ciclistes[i].height+ " "+ "<br>";
+      txt += "Tours Ganados: "+ equip_ciclista.ciclistes[i].tours+ " " + "<br>"; 
+      txt += "Victorias: "+ equip_ciclista.ciclistes[i].wins + "<br>" + "<br>";
+    }
+    document.getElementById("resultatP").innerHTML = txt;
   }
   
   //TODO: 5.Afagir un tour
