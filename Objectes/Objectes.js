@@ -45,38 +45,69 @@ var equip_ciclista = {
     ],
   }
 
+//TODO: Imprimir noms
   function ImprimirNom01(){
-
+        let txt = "";
+        for(let i in equip_ciclista.ciclistes){
+          txt += "Nombre:" + equip_ciclista.ciclistes[i].nom + " "+ "<br>";
+          txt += "Nacimiento: " + equip_ciclista.ciclistes[i].born + " "+ "<br>";
+          txt += "Altura: "+ equip_ciclista.ciclistes[i].height+ " "+ "<br>";
+          txt += "Tours Ganados: "+ equip_ciclista.ciclistes[i].tours+ " " + "<br>"; 
+          txt += "Victorias: "+ equip_ciclista.ciclistes[i].wins + "<br>" + "<br>";
+        }
+        document.getElementById("resultatP").innerHTML = txt;
   }
 
+//TODO: 2. Ordenar noms alfabeticament .DONE
   function NomsAlfabeticament02(){
+    function SortArray(x, y){
+      if (x.nom < y.nom) {return -1;}
+      if (x.nom > y.nom) {return 1;}
+      return 0;
+  }
+  var s = equip_ciclista.ciclistes.sort(SortArray);
+    
 
+    let txt = "";
+    for(let i in equip_ciclista.ciclistes){
+      txt += "Nombre:" + equip_ciclista.ciclistes[i].nom + " "+ "<br>";
+      txt += "Nacimiento: " + equip_ciclista.ciclistes[i].born + " "+ "<br>";
+      txt += "Altura: "+ equip_ciclista.ciclistes[i].height+ " "+ "<br>";
+      txt += "Tours Ganados: "+ equip_ciclista.ciclistes[i].tours+ " " + "<br>"; 
+      txt += "Victorias: "+ equip_ciclista.ciclistes[i].wins + "<br>" + "<br>";
+    }
+    document.getElementById("resultatP").innerHTML = txt;
   }
 
+  //TODO: 3. Ordentats per altura
   function NomsAltura03(){
 
   }
 
+  //TODO: 4. Ordenats de Millor a Pitjor
   function MillorPitjor04(){
 
   }
   
-  function Map05(){
+  //TODO: 5.Afagir un tour
+  function MapTour05(){
 
   }
 
-  function Filter06(){
+  //TODO: Eliminar ciclistes menors de 30
+  function FilterMenors06(){
 
   }
 
-  function Find(){
+  //TODO: Trobar el 1er ciclista major de 30
+  function FindMajors07(){
 
   }
-
+  //TODO: Afegir un ciclista a la posició 2
   function AfegirCiclista08(){
 
   }
-
+  //TODO: Imprimir noms ordenats per edat
   function NomsEdat09(){
       
   }
