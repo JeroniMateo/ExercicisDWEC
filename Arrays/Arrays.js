@@ -114,14 +114,14 @@ function strCreaAcronim11(){
 
 //TODO: 12.DONE Eliminar inferiors a 5 length
 function strFiltreLongitud12(){
-    var str= document.getElementById("num").value;
+   /*  var str= document.getElementById("num").value;
     let array = str.split(','); 
     for (let i = 0; i < array.length; i++) {
     if(array.length <5){
         array.splice(i,i);
         document.getElementById("solucion").innerHTML=array;
     }
-    }
+    } */
 }
 
  
@@ -152,8 +152,7 @@ function numSumaForeach13(){
 
 //TODO: 14. Contar la
 function strOcurrencies14(){
-    var str= document.getElementById("num").value;
-    let array = str.split(','); 
+   
    
     
     }
