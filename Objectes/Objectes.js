@@ -129,11 +129,16 @@ var equip_ciclista = {
   //TODO: 5.Afagir un tour
   function MapTour05(){
 
+
+
   }
+    
+ 
+  
 
   //TODO: Eliminar ciclistes menors de 30
   function FilterMenors06(){
-
+  equip_ciclista.ciclistes.filter((item) => item.id !== 1);
   }
 
   //TODO: Trobar el 1er ciclista major de 30
@@ -143,8 +148,38 @@ var equip_ciclista = {
   //TODO: Afegir un ciclista a la posició 2
   function AfegirCiclista08(){
 
+    equip_ciclista.ciclistes.push(
+      {
+      nom: "Josh Pantano",       
+    born: "30/11/1995",       
+    height: 1.88,     
+    tours: 2,    
+     wins: 9})
+
+     let txt = "";
+    for(let i in equip_ciclista.ciclistes){
+      txt += "Nombre:" + equip_ciclista.ciclistes[i].nom + " "+ "<br>";
+      txt += "Nacimiento: " + equip_ciclista.ciclistes[i].born + " "+ "<br>";
+      txt += "Altura: "+ equip_ciclista.ciclistes[i].height+ " "+ "<br>";
+      txt += "Tours Ganados: "+ equip_ciclista.ciclistes[i].tours+ " " + "<br>"; 
+      txt += "Victorias: "+ equip_ciclista.ciclistes[i].wins + "<br>" + "<br>";
+    }
+    document.getElementById("resultatP").innerHTML = txt;
+
   }
   //TODO: Imprimir noms ordenats per edat
   function NomsEdat09(){
+    function compareEvents(a, b) {
+      if (a.born < b.born) {
+        return -1;
+      }
+      if (a.born > b.born) {
+        return 1;
+      }
+      return 0;
+    }
       
+    equip_ciclista.ciclistes.sort(compareEvents);
+
+
   }
