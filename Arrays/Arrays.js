@@ -4,6 +4,7 @@ function separats01(){
     let array = str.split(','); 
     var retorno="";
     array.map(valor=> retorno +=valor +"$");
+  
     document.getElementById("solucion").innerHTML=retorno
 }
 
@@ -33,8 +34,6 @@ function splice04(){
     let array = str.split(','); 
      array.splice(1,1,"Doe",  3.1415)
     document.getElementById("solucion").innerHTML=array;
-
-
 }
 
 //TODO: 5.DONE Ordenar alfabeticament
@@ -114,15 +113,15 @@ function strCreaAcronim11(){
 
 //TODO: 12.DONE Eliminar inferiors a 5 length
 function strFiltreLongitud12(){
-   /*  var str= document.getElementById("num").value;
+    var str= document.getElementById("num").value;
     let array = str.split(','); 
-    for (let i = 0; i < array.length; i++) {
-    if(array.length <5){
-        array.splice(i,i);
-        document.getElementById("solucion").innerHTML=array;
+        const long = array.filter(array => array.length > 5 );
+
+        document.getElementById("solucion").innerHTML=long;
+
     }
-    } */
-}
+    
+
 
  
  //TODO: 13. DONE Fer una suma utilitzant un foreach   
