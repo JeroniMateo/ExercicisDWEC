@@ -141,20 +141,27 @@ function numSumaForeach13(){
     
     document.getElementById("solucion").innerHTML=total;
 }
-    
-    /* Ejecutamos */
-    
-    //La función de suma
-    
-     //Resultado
+
 
 
 //TODO: 14. Contar la
 function strOcurrencies14(){
-   
-   
-    
+    var str= document.getElementById("num").value;
+    let array = str.split(','); 
+    let contador =0;
+
+    var las = [];
+    for (let i = 0; i<array.length; i++) {
+        if(array[i] =="la") 
+        las.push(i)
     }
+   
+
+      document.getElementById("solucion").innerHTML=las.length;
+    }
+    
+    
+    
 
     
 
