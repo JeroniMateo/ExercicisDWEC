@@ -2,21 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR-examples</title>
   </head>
-  <body></body>
-  <script>
-    const url = 'https://localhost:3000/posts/1'
-    // Crea objecte XHR
-    const xhr = new XMLHttpRequest()
+  <body>
+    <h1>Book faker API</h1>
+    <div id="book">
 
-    // Callback
+    </div>
+  </body>
+  <script>
+    //url de la API
+    const url =
+      "http://localhost:3000/posts";
+    
+      const url2="  http://localhost:3000/comments";
+
+    // Crea objecte XHR
+    var xhr = new XMLHttpRequest();
+
+
+
+    // Callback en canviar l'estat
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        // Imprimeix el text obtingut
-        console.info(this.responseText)
+        let JSONdata = this.responseText;
+
+        // Aquesta variable conté dades de tipus string --> és "stringifyed JSON"
+        console.log(typeof JSONdata);
+
+        // Convertir el JSON a Objecte
+        let data = JSON.parse(JSONdata);
+        console.log(typeof data);
+
+        for (let i = 0; i < data.length; i++) {
+          document.getElementById("book").innerHTML+= 
+          `<h2>${data[i].title}</h2>
+          <h3>${data[i].author }</h3>
+          `
+          
+        }
+
+
+        
       }
-    }
-    xhr.open('GET', url, true)
-    xhr.send()
+    };
+    xhr.open("GET", url, true);
+    xhr.send();
   </script>
 </html>
