@@ -15,7 +15,7 @@
       <h2>llista de clase</h2>
       <ol> 
         <!--Aqui van els alumnes-->
-        <li v-for="element in llista" v-bind:key="element">{{element.name}} té {{element.age}}</li>
+        <li v-for="element in llista" v-bind:key="element.id">{{element.name}} té {{element.age}} anys Id: {{element.id}}</li>
       </ol>
     </div>
   </body>
@@ -26,12 +26,14 @@
           nomAlumne: "Joan",
           ageAlumne: 0,
           llista: [],
+          valorId:0,
         };
       },
       methods: {
         //Guardar dades de l'alumne 
         guardarDades() {
-          let alumn = { name: this.nomAlumne, age: this.ageAlumne };
+            this.valorId++
+          let alumn = { id: this.valorId, name: this.nomAlumne, age: this.ageAlumne };
             
           //fer un push a la llista
           this.llista.push(alumn)
