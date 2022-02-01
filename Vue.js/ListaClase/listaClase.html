@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Vue  3  CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      Nom: <input v-model="nomAlumne" type="text" name="" id="name" /> Edat:
+      <input v-model="ageAlumne" type="number" name="" id="age" />
+      <button v-on:click="guardarDades">Guardar</button>
+      <h2>llista de clase</h2>
+      <ol> 
+        <!--Aqui van els alumnes-->
+        <li v-for="element in llista" v-bind:key="element">{{element.name}} té {{element.age}}</li>
+      </ol>
+    </div>
+  </body>
+  <script>
+    const app = {
+      data() {
+        return {
+          nomAlumne: "Joan",
+          ageAlumne: 0,
+          llista: [],
+        };
+      },
+      methods: {
+        //Guardar dades de l'alumne 
+        guardarDades() {
+          let alumn = { name: this.nomAlumne, age: this.ageAlumne };
+            
+          //fer un push a la llista
+          this.llista.push(alumn)
+        },
+      },
+    };
+    Vue.createApp(app).mount("#app");
+  </script>
+</html>

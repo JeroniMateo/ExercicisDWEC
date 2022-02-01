@@ -7,21 +7,17 @@
   </head>
   <body>
     <h1>Book faker API</h1>
-    <div id="book">
-
-    </div>
+    <div id="book"></div>
   </body>
   <script>
     //url de la API
-    const url =
-      "http://localhost:3000/posts";
-    
-      const url2="  http://localhost:3000/comments";
+    const url = "http://localhost:3000/posts";
+
+    const url2 = "http://localhost:3000/comments";
 
     // Crea objecte XHR
     var xhr = new XMLHttpRequest();
-
-
+    var xhr2 = new XMLHttpRequest();
 
     // Callback en canviar l'estat
     xhr.onreadystatechange = function () {
@@ -35,18 +31,33 @@
         let data = JSON.parse(JSONdata);
         console.log(typeof data);
 
-        for (let i = 0; i < data.length; i++) {
-          document.getElementById("book").innerHTML+= 
-          `<h2>${data[i].title}</h2>
-          <h3>${data[i].author }</h3>
-          `
-          
-        }
+        xhr2.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            let JSONdata2 = this.responseText;
 
+            // Aquesta variable conté dades de tipus string --> és "stringifyed JSON"
+            console.log(typeof JSONdata2);
 
-        
+            // Convertir el JSON a Objecte
+            let data2 = JSON.parse(JSONdata2);
+            console.log(typeof data2);
+
+            for (let i = 0; i < data.length; i++) {
+              document.getElementById("book").innerHTML += 
+              `<h2>${data[i].title}</h2>
+              <h3>${data[i].author}</h3>`;
+              if(data[i].id = data2[i].id){
+                document.getElementById("book").innerHTML += 
+              `<h3>${data2[i].body}</h3>`;
+              }
+            }
+          }
+          xhr2.open("GET", url2, true);
+          xhr2.send();
+        };
       }
     };
+
     xhr.open("GET", url, true);
     xhr.send();
   </script>
