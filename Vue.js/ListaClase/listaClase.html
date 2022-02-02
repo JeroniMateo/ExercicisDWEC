@@ -15,7 +15,9 @@
       <h2>llista de clase</h2>
       <ol> 
         <!--Aqui van els alumnes-->
-        <li v-for="element in llista" v-bind:key="element.id">{{element.name}} té {{element.age}} anys Id: {{element.id}}</li>
+        <li v-for="element in llista" v-bind:key="element.id">{{element.name}} té {{element.age}} anys Id: {{element.id}}
+            <button v-on:click="borrarAlumne(element.id)">Borrar</button>
+        </li>
       </ol>
     </div>
   </body>
@@ -25,19 +27,31 @@
         return {
           nomAlumne: "Joan",
           ageAlumne: 0,
-          llista: [],
+          llista: [
+            {id:1, name:"Tom", age:5},
+            {id:2, name:"Tom", age:5},
+            {id:3, name:"Tom", age:5}
+          ],
           valorId:0,
         };
       },
       methods: {
         //Guardar dades de l'alumne 
         guardarDades() {
+            valorId =3;
             this.valorId++
           let alumn = { id: this.valorId, name: this.nomAlumne, age: this.ageAlumne };
             
           //fer un push a la llista
           this.llista.push(alumn)
         },
+        borrarAlumne(identificador){
+            //eliminar ALumne
+            this.llista = this.llista.filter((element)=> element.id != identificador )
+                
+              
+     }
+        
       },
     };
     Vue.createApp(app).mount("#app");
