@@ -9,16 +9,20 @@
   </head>
   <body>
     <div id="app">
+      <h2>Afegeix un nou alumne</h2>
       Nom: <input v-model="nomAlumne" type="text" name="" id="name" /> Edat:
       <input v-model="ageAlumne" type="number" name="" id="age" />
       <button v-on:click="guardarDades">Guardar</button>
-      <h2>llista de clase</h2>
+      <h2>Llista de clase</h2>
       <ol> 
         <!--Aqui van els alumnes-->
         <li v-for="element in llista" v-bind:key="element.id">{{element.name}} té {{element.age}} anys Id: {{element.id}}
             <button v-on:click="borrarAlumne(element.id)">Borrar</button>
+            <button v-on:click="visualitzarAlumne(element)">Visualitzar</button>
+            
         </li>
       </ol>
+      <p> {{ fitxaAlumne.name}} te {{fitxaAlumne.age   }} anys </p>
     </div>
   </body>
   <script>
@@ -28,17 +32,21 @@
           nomAlumne: "Joan",
           ageAlumne: 0,
           llista: [
-            {id:1, name:"Tom", age:5},
-            {id:2, name:"Tom", age:5},
-            {id:3, name:"Tom", age:5}
+            {id:1, name:"Tomeu", age:5},
+            {id:2, name:"Pep", age:15},
+            {id:3, name:"Miquel", age:50}
           ],
           valorId:0,
+          //Per visualitzar
+          fitxaAlumne:{
+
+          }
         };
       },
       methods: {
         //Guardar dades de l'alumne 
         guardarDades() {
-            valorId =3;
+            valorId =100;
             this.valorId++
           let alumn = { id: this.valorId, name: this.nomAlumne, age: this.ageAlumne };
             
@@ -50,6 +58,9 @@
             this.llista = this.llista.filter((element)=> element.id != identificador )
                 
               
+     },
+     visualitzarAlumne(element){
+        this.fitxaAlumne=element
      }
         
       },
