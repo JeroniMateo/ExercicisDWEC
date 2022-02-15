@@ -10,19 +10,25 @@
   <body>
     <div id="app">
       <h2>Afegeix un nou alumne</h2>
-      Nom: <input v-model="nomAlumne" type="text" name="" id="name" /> Edat:
-      <input v-model="ageAlumne" type="number" name="" id="age" />
+      <label for="">Nom: <input v-model="nomAlumne" type="text" name="" id="name" /> </label>
+      <label for="">Edat:<input v-model="ageAlumne" type="number" name="" id="age" /></label>
       <button v-on:click="guardarDades">Guardar</button>
       <h2>Llista de clase</h2>
       <ol> 
         <!--Aqui van els alumnes-->
-        <li v-for="element in llista" v-bind:key="element.id">{{element.name}} té {{element.age}} anys Id: {{element.id}}
+        <li v-for="element in llista" v-bind:key="element.id"> 
+          <!--V-model per canviar el nom -->
+          <input v-model="element.name"> té 
+          <!--V-model per canviar l'edat -->
+          <input v-model="element.age"> 
+          anys Id: {{element.id}}
             <button v-on:click="borrarAlumne(element.id)">Borrar</button>
+            <!--Visualitzar un alumne en concret-->
             <button v-on:click="visualitzarAlumne(element)">Visualitzar</button>
             
         </li>
       </ol>
-      <p> {{ fitxaAlumne.name}} te {{fitxaAlumne.age   }} anys </p>
+      <h3 id="visualitzacio" style="display: none;">{{ fitxaAlumne.name }} te {{fitxaAlumne.age   }} anys </h3>
     </div>
   </body>
   <script>
@@ -55,11 +61,13 @@
         },
         borrarAlumne(identificador){
             //eliminar ALumne
+
             this.llista = this.llista.filter((element)=> element.id != identificador )
                 
               
      },
      visualitzarAlumne(element){
+       document.getElementById('visualitzacio').style.display = "block";
         this.fitxaAlumne=element
      }
         
